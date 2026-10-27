@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jenkines-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jenkines-demo
+  template:
+    metadata:
+      labels:
+        app: jenkines-demo
+    spec:
+      containers:
+        - name: jenkines-demo
+          image: jenkines-demo:latest
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 9091
